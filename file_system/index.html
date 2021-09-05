@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <form name="upload" action="img_processing.php" method="POST" ENCTYPE="multipart/form-data">
+        Выберите файл для загрузки:
+        <input type="file" name="userfile">
+        <input type="submit" name="upload" value="Загрузить">
+    </form>
+    <form name = "main" action = "show_image.php" method="post">
+        <input type="submit" value="Показать картинки">
+    </form>
+</body>
+</html>
