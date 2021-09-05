@@ -25,7 +25,7 @@ class DataBase
 
     public function addImage($imageType)
     {
-        $stmt = $this->db->prepare("INSERT INTO `images`(`type_image`) VALUES ({$imageType});");
+        $stmt = $this->db->prepare("INSERT INTO `images` (`type_image`) VALUES ({$imageType});");
         $stmt->execute();
         return $this->db->lastInsertId();
     }
@@ -47,7 +47,7 @@ class DataBase
 
     public function getAllImage()
     {
-        $stmt = $this->db->prepare("SELECT images.id,images.count_click,img_type.name_type FROM `images`, `img_type` WHERE images.type_image = img_type.id ORDER BY images.count_click;");
+        $stmt = $this->db->prepare("SELECT images.id,images.count_click,img_type.name_type FROM `images`, `img_type` WHERE images.type_image = img_type.id ORDER BY images.count_click DESC;");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

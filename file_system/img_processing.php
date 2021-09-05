@@ -10,13 +10,12 @@ $imgName = "1.jpg";
 switch ($_FILES['userfile']['type']) {
     case 'image/jpeg':
     {
-        //$db->addImage("jpeg");
-        $imgName = generateImgName("jpeg");
+        $imgName = $db->addImage(1) . ".jpeg";
         break;
     }
     case 'image/png':
     {
-        $imgName = generateImgName("png");
+        $imgName = $db->addImage(2) . ".png";
         break;
     }
 }
@@ -52,11 +51,5 @@ if (($_FILES['userfile']['type'] == 'image/jpeg' || $_FILES['userfile']['type'] 
         echo "Файл не загружен, вернитеcь и попробуйте еще раз";
     }
 } else {
-    echo "Неверный формат фаила. Загрузите изображение формата jpeg или png";
-}
-
-
-function generateImgName($typeImg): string
-{
-    return date('Y') . "-" . date('m') . "-" . date('d') . "-" . date("H") . "-" . date('i') . "-" . date('s') . '.' . $typeImg;
+    echo "Неверный формат файла. Загрузите изображение формата jpeg или png";
 }
